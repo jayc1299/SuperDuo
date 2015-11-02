@@ -1,0 +1,120 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="it.jaschke.alexandria.AddBook">
+
+	<RelativeLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_gravity="center_horizontal|top">
+
+		<LinearLayout
+			android:id="@+id/eancontainer"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true">
+
+			<EditText
+				android:id="@+id/ean"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="number"
+				android:minEms="@integer/ean_width"
+				android:saveEnabled="true"
+				android:maxLength="@integer/ean_size"
+				android:maxLines="1"
+				android:hint="@string/input_hint"
+				android:paddingRight="20dp" />
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/scan_button"
+				android:id="@+id/scan_button" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/eancontainer"
+			android:layout_above="@+id/bottom_buttons"
+			android:paddingLeft="30dp"
+			android:paddingTop="20dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/bookTitle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/head_line"
+				android:textIsSelectable="true"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/bookSubTitle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:maxLines="3"
+				android:ellipsize="end" />
+
+			<TextView
+				android:id="@+id/authors"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="end"
+				android:textSize="@dimen/small_fontsize"
+				android:layout_marginTop="10dp" />
+
+			<ImageView
+				android:id="@+id/bookCover"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:contentDescription="@string/book_cover" />
+
+			<TextView
+				android:id="@+id/categories"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/small_fontsize"
+				android:layout_marginTop="10dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/bottom_buttons"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="50dip"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentStart="true">
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="@string/cancel_button"
+				android:layout_weight="1"
+				style="?android:attr/buttonBarButtonStyle"
+				android:id="@+id/delete_button"
+				android:drawableLeft="@drawable/ic_action_discard"
+				android:visibility="invisible" />
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="@string/ok_button"
+				android:visibility="invisible"
+				android:layout_weight="1"
+				android:id="@+id/save_button"
+				android:drawableLeft="@drawable/ic_action_accept"
+				style="?android:attr/buttonBarButtonStyle"
+				android:layout_gravity="bottom" />
+		</LinearLayout>
+	</RelativeLayout>
+</FrameLayout>

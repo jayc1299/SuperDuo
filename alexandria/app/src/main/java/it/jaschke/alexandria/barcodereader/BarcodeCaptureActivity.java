@@ -108,7 +108,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 		gestureDetector = new GestureDetector(this, new CaptureGestureListener());
 		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
-		Toast.makeText(this, "Tap to capture.", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, getString(R.string.barcode_instructions), Toast.LENGTH_LONG).show();
 	}
 
 	/**
@@ -291,7 +291,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 		};
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Multitracker sample")
+		builder.setTitle(getString(R.string.app_name))
 				.setMessage(R.string.no_camera_permission)
 				.setPositiveButton(R.string.ok, listener)
 				.show();
@@ -358,7 +358,6 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 
 		@Override
 		public boolean onSingleTapConfirmed(MotionEvent e) {
-
 			return onTap(e.getRawX(), e.getRawY()) || super.onSingleTapConfirmed(e);
 		}
 	}
@@ -413,7 +412,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 		 */
 		@Override
 		public void onScaleEnd(ScaleGestureDetector detector) {
-			//mCameraSource.doZoom(detector.getScaleFactor());
+			mCameraSource.doZoom(detector.getScaleFactor());
 		}
 	}
 }

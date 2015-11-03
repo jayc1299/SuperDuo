@@ -108,7 +108,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 		gestureDetector = new GestureDetector(this, new CaptureGestureListener());
 		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
-		Toast.makeText(this, "Tap to capture. Pinch/Stretch to zoom", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "Tap to capture.", Toast.LENGTH_LONG).show();
 	}
 
 	/**
@@ -204,7 +204,6 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 
 		// make sure that auto focus is an available option
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && autoFocus) {
-			//builder = builder.setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null);
 			builder.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
 		}
 
@@ -213,8 +212,6 @@ public final class BarcodeCaptureActivity extends AppCompatActivity {
 		}
 
 		mCameraSource = builder.build();
-				//.setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
-				//.build();
 	}
 
 	/**

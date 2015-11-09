@@ -18,6 +18,12 @@ Book project
 
 Football or soccer
 
+#### API Key
+You should create an API key named \app\src\main\res\values\strings_api.xml
+
+In here you should place your API key. This file is deliberately not checked into git.
+
+
 #### User Feedback for Football Scores:
 
 *Your Boss says:*

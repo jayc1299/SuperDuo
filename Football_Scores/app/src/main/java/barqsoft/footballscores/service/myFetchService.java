@@ -52,9 +52,8 @@ public class myFetchService extends IntentService
         final String QUERY_TIME_FRAME = "timeFrame"; //Time Frame parameter to determine days
         //final String QUERY_MATCH_DAY = "matchday";
 
-        Uri fetch_build = Uri.parse(BASE_URL).buildUpon().
-                appendQueryParameter(QUERY_TIME_FRAME, timeFrame).build();
-        Log.v(LOG_TAG, "The url we are looking at is: "+fetch_build.toString()); //log spam
+        Uri fetch_build = Uri.parse(BASE_URL).buildUpon().appendQueryParameter(QUERY_TIME_FRAME, timeFrame).build();
+        //Log.v(LOG_TAG, "The url we are looking at is: "+fetch_build.toString()); //log spam
         HttpURLConnection m_connection = null;
         BufferedReader reader = null;
         String JSON_data = null;

@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.widget.RemoteViews;
 
 public class WidgetProvider extends AppWidgetProvider{
@@ -26,7 +27,11 @@ public class WidgetProvider extends AppWidgetProvider{
 			intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId);
 			intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
 
-			remoteViews.setRemoteAdapter(widgetId, R.id.widget_today_games, intent);
+			if(android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+				remoteViews.setTextViewText(R.id.widget_today_title, context.getString(R.string.widget_text));
+			}else{
+				remoteViews.setRemoteAdapter(widgetId, R.id.widget_today_games, intent);
+			}
 
 			intent = new Intent(context, MainActivity.class);
 			PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

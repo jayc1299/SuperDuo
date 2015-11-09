@@ -37,3 +37,9 @@ In here you should place your API key. This file is deliberately not checked int
 
 *Jennie says:*
 “I like the functionality of this app, but I hate having to open it up every time I want to check for a new game. Can’t you put something on the home screen for us?”
+
+## References 
+
+I learnt how to create widgets with listviews in using these two resources:
+- http://developer.android.com/guide/topics/appwidgets/index.html
+- https://github.com/commonsguy/cw-advandroid/tree/master/AppWidget/LoremWidget

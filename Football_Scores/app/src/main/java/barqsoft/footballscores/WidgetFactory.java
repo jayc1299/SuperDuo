@@ -1,13 +1,16 @@
 package barqsoft.footballscores;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import java.text.SimpleDateFormat;
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
 	private Context mContext;
 	Cursor mCursor;

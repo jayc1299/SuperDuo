@@ -38,12 +38,14 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
 
 	@Override
 	public void onDestroy() {
-		// unused
+		if(mCursor != null){
+			mCursor.close();
+		}
 	}
 
 	@Override
 	public int getCount() {
-		return(mCursor.getCount());
+		return mCursor.getCount();
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
 			int awayGoals = mCursor.getInt(mCursor.getColumnIndex(DatabaseContract.scores_table.AWAY_GOALS_COL));
 			row.setTextViewText(R.id.score_textview, Utilies.getScores(homeGoals, awayGoals));
 
-			return (row);
+			return row;
 		}else{
 			return null;
 		}
@@ -65,22 +67,22 @@ public class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
 
 	@Override
 	public RemoteViews getLoadingView() {
-		return(null);
+		return null;
 	}
 
 	@Override
 	public int getViewTypeCount() {
-		return(1);
+		return 1;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return(position);
+		return position;
 	}
 
 	@Override
 	public boolean hasStableIds() {
-		return(true);
+		return true;
 	}
 
 	@Override
